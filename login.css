@@ -1,0 +1,29 @@
+.about-us {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .about-us h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .about-us p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1.1rem;
+  }
+  
+  .about-us a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  .about-us a:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,0 +1,146 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4; /* Light background color */
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333; /* Dark header background */
+  color: white; /* White text color */
+  padding: 10px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+section {
+  padding: 20px;
+}
+
+/* Navigation Styling */
+.nav-links {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove padding */
+  display: flex; /* Use flexbox for horizontal layout */
+  justify-content: center; /* Center the links */
+}
+
+.nav-links li {
+  margin: 0 15px; /* Space between links */
+}
+
+.nav-links a {
+  text-decoration: none; /* Remove underline */
+  color: white; /* White text color */
+  padding: 10px 15px; /* Padding around links */
+  transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.nav-links a:hover {
+  background-color: #575757; /* Darker background on hover */
+  border-radius: 5px; /* Rounded corners on hover */
+}
+
+/* Buttons */
+button {
+  background-color: #4CAF50; /* Default button background */
+  color: white; /* Text color */
+  padding: 12px 24px; /* Padding inside the button */
+  margin: 10px; /* Space around buttons */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Button text size */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* Log In Button */
+#logIn {
+  background-color: #007BFF; /* Blue color for Log In button */
+  margin-left: 675px;
+  margin-bottom: 900px;
+}
+
+#logIn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Footer */
+footer {
+  background-color: #333; /* Dark footer background */
+  color: white; /* White text color */
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Entries Section */
+.entries-section {
+  max-width: 1200px;
+  margin: 2em auto;
+}
+
+.entries-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+}
+
+.entry {
+  background: white;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: calc(33% - 2em); /* Adjust for responsive sizing */
+  max-width: 300px;
+}
+
+.entry p {
+  margin: 0.5em 0;
+}
+
+.delete-btn {
+  background-color: #FF4136; /* Red color for delete button */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #C0392B; /* Darker red on hover */
+}
+
+
+.entry p:first-child {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+/* Responsive Design for Entries */
+@media (max-width: 768px) {
+  .entry {
+    width: calc(50% - 1em);
+  }
+}
+
+@media (max-width: 480px) {
+  .entry {
+    width: 100%;
+  }
+}

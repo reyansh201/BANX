@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FTC Finder - Post</title>
+  <link rel="stylesheet" href="post.css">
+  <style>
+    /* Profile Picture Styling */
+    #profileContainer {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+    }
+
+    #profilePic {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    /* Sign-Out Popup Styling */
+    #signOutPopup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      z-index: 1000;
+    }
+
+    #signOutPopup button {
+      background-color: #ff4d4d;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 5px;
+    }
+
+    #signOutPopup button:hover {
+      background-color: #ff1a1a;
+    }
+
+    #cancelButton {
+      background-color: #ccc;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-left: 20px;
+      width: 80px;
+    }
+
+    #cancelButton:hover {
+      background-color: #999;
+    }
+
+    /* Dark Overlay for popup */
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    /* Form Container */
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+      margin-top: 90px;
+      flex-wrap: wrap;
+    }
+
+    .post-form, .request-form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 40%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .post-form h2, .request-form h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    /* Button Styling */
+    #submitButton, #requestButton {
+      background-color: #0078D7;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #submitButton:hover, #requestButton:hover {
+      background-color: #005bb5;
+    }
+
+    /* Navbar Styling */
+    header {
+      position: relative;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Entries Container Styling */
+    .entries-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+      justify-content: flex-start;
+    }
+
+    .entry-box {
+      flex: 1 1 calc(33.333% - 20px);
+      background-color: #f9f9f9;
+      border: 2px solid #0078D7; /* Add border around each box */
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .entry-box:hover {
+      border-color: #005bb5;
+      box-shadow: 0 4px 6px rgba(0, 120, 215, 0.2);
+    }
+
+    .entries-section h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BANX</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="loggedin.html">Home</a></li>
+        <li><a href="find.html">Find</a></li>
+        <li><a href="post.html">Post</a></li>
+        <li><a href="requests.html">Requests</a></li>
+      </ul>
+    </nav>
+
+    <div id="profileContainer">
+      <img id="profilePic" src="" alt="Profile Picture">
+    </div>
+  </header>
+
+  <div id="overlay"></div>
+  <div id="signOutPopup">
+    <p>Are you sure you want to sign out?</p>
+    <button id="signOutButton" style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 5px;">
+      Sign Out
+    </button>
+    <button id="cancelButton" style="background-color: gray; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 5px;">
+      No
+    </button>
+  </div>
+
+  <div class="form-container">
+    <section class="post-form">
+      <h2>Post a New Item</h2>
+      <form id="postForm">
+        <div class="form-group">
+          <label for="itemNumber">Item Number:</label>
+          <input type="text" id="itemNumber" placeholder="Enter item number">
+        </div>
+        <div class="form-group">
+          <label for="teamNumber">Team Number:</label>
+          <input type="text" id="teamNumber" placeholder="Enter team number">
+        </div>
+        <div class="form-group">
+          <label for="zipCode">ZIP Code:</label>
+          <input type="text" id="zipCode" placeholder="Enter ZIP code">
+        </div>
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input type="text" id="price" placeholder="Enter price">
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity:</label>
+          <input type="text" id="quantity" placeholder="Enter quantity">
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" id="email" placeholder="Enter email">
+        </div>
+        <button type="button" id="submitButton">Post Item</button>
+      </form>
+    </section>
+
+    <section class="request-form">
+      <h2>Post a Request</h2>
+      <form id="requestForm">
+        <div class="form-group">
+          <label for="requestItem">Item Needed:</label>
+          <input type="text" id="requestItem" placeholder="Enter requested item">
+        </div>
+        <div class="form-group">
+          <label for="requestQuantity">Quantity Needed:</label>
+          <input type="text" id="requestQuantity" placeholder="Enter quantity">
+        </div>
+        <div class="form-group">
+          <label for="requestEmail">Email:</label>
+          <input type="text" id="requestEmail" placeholder="Enter email">
+        </div>
+        <button type="button" id="requestButton">Post Request</button>
+      </form>
+    </section>
+  </div>
+
+  <section class="entries-section">
+    <h2>Your Current Posts</h2>
+    <div id="entriesContainer" class="entries-container">
+      <div class="entry-box">Post Example 1</div>
+      <div class="entry-box">Post Example 2</div>
+    </div>
+
+    <h2>Your Current Requests</h2>
+    <div id="requestsContainer" class="entries-container">
+      <div class="entry-box">Request Example 1</div>
+      <div class="entry-box">Request Example 2</div>
+    </div>
+  </section>
+
+  <script type="module" src="post.js"></script>
+</body>
+</html>

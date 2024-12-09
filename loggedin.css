@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  section {
+    padding: 20px;
+  }
+  button {
+    background-color: #4CAF50; /* Default button background */
+    color: white; /* Text color */
+    padding: 12px 24px; /* Padding inside the button */
+    margin: 10px; /* Space around buttons */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Button text size */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    
+}
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Styling for the Log In button specifically */
+#logIn {
+    background-color: #007BFF; /* Blue color for Log In button */
+     margin-left: 675px;
+     margin-bottom: 900px;
+    
+}
+
+#logIn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Styling for the Sign Up button specifically */
+
+
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+.nav-links {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: center; /* Center the links */
+}
+
+.nav-links li {
+    margin: 0 15px; /* Space between links */
+}
+
+.nav-links a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* White text color */
+    padding: 10px 15px; /* Padding around links */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+/* Hover effect for links */
+.nav-links a:hover {
+    background-color: #575757; /* Darker background on hover */
+    border-radius: 5px; /* Rounded corners on hover */
+}
+
+  

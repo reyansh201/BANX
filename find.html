@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FTC Finder - Find Items</title>
+  <link rel="stylesheet" href="find.css">
+</head>
+<body>
+  <header>
+    <h1>BANX</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="loggedin.html">Home</a></li>
+        <li><a href="find.html" id="findLink">Find</a></li>
+        <li><a href="post.html">Post</a></li>
+        <li><a href = "requests.html">Requests</a></li>
+      </ul>
+    </nav>
+    <div id="searchContainer">
+      <input type="text" id="itemSearchInput" placeholder="Search by Item Number...">
+      <input type="text" id="zipSearchInput" placeholder="Search by Zip Code...">
+    </div>
+    
+    <!-- Profile container for user profile picture -->
+    <div id="profileContainer" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+      <img id="profilePic" src="default-profile-pic.jpg" alt="Profile" 
+        style="width: 50px; height: 50px; border-radius: 50%;">
+    </div>
+  </header>
+
+  <!-- Section to Display Posted Items -->
+  <section id="items-section">
+    <div id="entriesContainer">
+      <!-- JavaScript will populate this section with items from the Firestore database -->
+    </div>
+  </section>
+
+  <!-- Sign-out confirmation popup -->
+  <div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 10;"></div>
+  
+  <div id="signOutPopup" 
+    style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 300px; background-color: #1e1e1e; border-radius: 10px; text-align: center; padding: 20px; color: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 11;">
+    <p>Are you sure you want to sign out?</p>
+    <button id="signOutButton" style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 5px;">
+      Sign Out
+    </button>
+    <button id="cancelButton" style="background-color: gray; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 5px;">
+      No
+    </button>
+  </div>
+
+  <script type="module" src="find.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <link rel="stylesheet" href="loggedin.css">
+</head>
+<body>
+  <header>
+    <h1>BANX</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="loggedin.html">Home</a></li>
+        <li><a href="find.html" id="findLink">Find</a></li>
+        <li><a href="post.html">Post</a></li>
+        <li><a href = "requests.html">Requests</a></li>
+      </ul>
+    </nav>
+    
+    <!-- Profile button -->
+    <div id="profileBtn" style="position: absolute; top: 10px; right: 10px;">
+      <!-- Profile picture will be injected by JavaScript -->
+    </div>
+  </header>
+
+  <section>
+    <div class="about-us">
+      <h1>Post an Item on the Post page, and look for posted items on Find</h1>
+      <h2>About MK II</h2>
+      <p>MK II is an FTC team made up of middle and high school students in Fremont, CA. We were founded in 2024 and are excited to start competing in the First Tech Challenge as a rookie team this year. Our team mission is to help spread FIRST and STEM in under-resourced communities in order to ensure that other people can enjoy robotics as much as we do!</p>
+
+      <p>We created this website for many reasons, including helping teams get items quickly instead of waiting for long shipping times, and by helping teams to sell items instead of returning them with a restock fee, helping them get most of their money back.</p>
+
+      <p>For more information, visit our website: <a href="https://sites.google.com/view/mk-ii/home" target="_blank">https://sites.google.com/view/mk-ii/home</a></p>
+    </div>
+  </section>
+
+  <!-- Sign-out popup -->
+  <div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;"></div>
+  <div id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: black; padding: 20px; border-radius: 8px; z-index: 1000; text-align: center; color: white;">
+    <p>Are you sure you want to sign out?</p>
+    <button id="signOutButton" style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 5px;">
+      Sign Out
+    </button>
+    <button id="cancelButton" style="background-color: gray; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 5px;">
+      No
+    </button>
+  </div>
+
+  <script type="module" src="loggedin.js"></script>
+</body>
+</html>
